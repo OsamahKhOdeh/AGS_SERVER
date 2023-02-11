@@ -12,7 +12,7 @@ export const createProduct = async (req, res) => {
 
   try {
     await newProduct.save();
-
+res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
     res.status(201).json(newProduct);
   } catch (error) {
     res.status(409).json({ message: error.message });
